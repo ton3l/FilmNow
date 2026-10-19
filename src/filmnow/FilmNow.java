@@ -10,7 +10,8 @@ public class FilmNow {
 
     private static final int TAMANHO = 100;
 
-    private Filme[] filmes; //uma representacao simploria da lista de filmes
+    private Filme[] filmes;
+    private Filme[] hotlist;
 
     /**
      * Cria o FilmNow.
@@ -44,7 +45,20 @@ public class FilmNow {
      * @param local Local onde o filme pode ser assitido.
      */
     public void cadastraFilme(int posicao, String nome, int ano, String local) {
+        // TODO: Verificar se filme ja existe
         this.filmes[posicao] = new Filme(ano, nome, local);
     }
 
+    public void atribuirHot(int posicaoFilme, int posicaoHot){
+        // TODO
+    }
+
+    public String exibitHotList(){
+        // TODO
+        void;
+    }
+
+    public void removerHot(int posicaoHot){
+        // TODO
+    }
 }
