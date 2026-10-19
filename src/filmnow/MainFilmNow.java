@@ -88,10 +88,10 @@ public class MainFilmNow {
      */
     private static void mostrarFilmes(FilmNow fn) {
 
-        String[] filmes = fn.getFilmes();
+        Filme[] filmes = fn.getFilmes();
         for (int i = 0; i < filmes.length; i++) {
             if (filmes[i] != null) {
-                System.out.println(formataFilme(i, filmes[i]));
+                System.out.println(formataFilme(i, filmes[i].getNome()));
             }
         }
     }
@@ -105,7 +105,7 @@ public class MainFilmNow {
     private static void detalharFilme(FilmNow fn, Scanner scanner) {
         System.out.print("\nQual filme> ");
         int posicao = scanner.nextInt();
-        String filme = fn.getFilme(posicao);
+        Filme filme = fn.getFilme(posicao);
         System.out.println("Dados do filme:\n" + filme);
     }
 
@@ -113,11 +113,11 @@ public class MainFilmNow {
      * Formata um filme para impressão.
      *
      * @param posicao A posição do filme (que é exibida)/
-     * @param filme O filme a ser impresso.
+     * @param nomeFilme O nome do filme a ser impresso.
      * @return A String formatada.
      */
-    private static String formataFilme(int posicao, String filme) {
-        return posicao + " - " + filme;
+    private static String formataFilme(int posicao, String nomeFilme) {
+        return posicao + " - " + nomeFilme;
     }
 
     /**
@@ -135,7 +135,7 @@ public class MainFilmNow {
         String ano = scanner.next();
         System.out.print("\nLocal> ");
         String local = scanner.next();
-        fn.cadastraFilme(posicao, nome, ano, local);
+        fn.cadastraFilme(posicao, nome, Integer.parseInt(ano), local);
     }
 
     /**

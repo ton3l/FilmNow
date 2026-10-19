@@ -1,0 +1,38 @@
+FilmNow
+composes Filme
+---
+- filmes: Filme[]
+- hotList: Filme[]
+---
++ adicionarFilme(nome: String, ano: int, local: String): String
++ detalharFilme(posicao: int): String
++ mostrarTodosFilmes(): String
++ atribuirHot(posicaoFilme: int, posicaoHot: int): void
++ exibitHotList(): String
++ removerHot(posicao: int): void
+- temFilme(nome: String, ano: int): boolean
+- ehHotFilme(filme: Filme): boolean
+---
+
+Filme
+---
+- nome: String
+- ano: int
+- local: String
+---
++ Filme(nome: String, ano: int, local: String)
++ getNome(): String
++ getAno(): int
++ getLocal(): String
++ toString(): String
++ equals(o: Object): boolean
++ hashCode(): int
+---
+
+Main
+association FilmNow
+---
+---
++ main(args: String[]): void
+---
+
