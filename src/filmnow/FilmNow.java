@@ -18,6 +18,7 @@ public class FilmNow {
      */
     public FilmNow() {
         this.filmes = new Filme[TAMANHO];
+        this.hotlist = new Filme[10];
     }
 
     /**
@@ -37,6 +38,15 @@ public class FilmNow {
         return filmes[posicao];
     }
 
+    private int getFilmeIndex(Filme filme){
+        for (int i = 0; i < filmes.length; i++){
+            if (filmes[i] == null) continue;
+            if (filmes[i].equals(filme)) return i;
+        }
+
+        return -1;
+    }
+
     /**
      * Adiciona um filme em uma posição. Se já existir filme na posição, sobrescreve o anterior.
      * @param posicao Posição do filme.
@@ -50,15 +60,16 @@ public class FilmNow {
     }
 
     public void atribuirHot(int posicaoFilme, int posicaoHot){
-        // TODO
+        hotlist[posicaoHot] = filmes[posicaoFilme];
+        filmes[posicaoFilme].setHot(true);
     }
 
-    public String exibitHotList(){
-        // TODO
-        void;
+    public Filme[] getHotlist() {
+        return hotlist;
     }
 
     public void removerHot(int posicaoHot){
-        // TODO
+        hotlist[posicaoHot] = null;
+        filmes[getFilmeIndex(hotlist[posicaoHot])].setHot(false);
     }
 }

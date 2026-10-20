@@ -29,6 +29,8 @@ public class MainFilmNow {
 
         Scanner scanner = new Scanner(System.in);
         String escolha = "";
+        fn.atribuirHot(2, 0);
+        exibirHotList(fn);
         while (true) {
             escolha = menu(scanner);
             comando(escolha, fn, scanner);
@@ -89,6 +91,15 @@ public class MainFilmNow {
     private static void mostrarFilmes(FilmNow fn) {
 
         Filme[] filmes = fn.getFilmes();
+        for (int i = 0; i < filmes.length; i++) {
+            if (filmes[i] != null) {
+                System.out.println(formataFilme(i, filmes[i].getNome()));
+            }
+        }
+    }
+
+    private static void exibirHotList(FilmNow fn){
+        Filme[] filmes = fn.getHotlist();
         for (int i = 0; i < filmes.length; i++) {
             if (filmes[i] != null) {
                 System.out.println(formataFilme(i, filmes[i].getNome()));

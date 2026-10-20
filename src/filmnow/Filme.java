@@ -12,6 +12,7 @@ public class Filme {
     private String nome;
     private int ano;
     private String local;
+    private boolean isHot;
 
     public Filme(int ano, String nome, String local) {
         this.ano = ano;
@@ -43,9 +44,18 @@ public class Filme {
         this.local = local;
     }
 
+    public void setHot(boolean hot) {
+        isHot = hot;
+    }
+
     @Override
     public String toString() {
-        return nome + ", " + ano + "\n" + local;
+        String str = "";
+
+        if (isHot) str += "\uD83D\uDD25 ";
+        str += nome + ", " + ano + "\n" + local;
+
+        return str;
     }
 
     @Override
